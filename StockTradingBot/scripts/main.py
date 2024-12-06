@@ -106,7 +106,9 @@ def data_pull():
         df_existing = None  # No existing data
 
     # Fetch data from API
-    api_key = "LG8GLJ9DF35YGUKA"
+    api_key_path = r"C:\Users\gianl\.vscode\FinalProject\key.txt"
+    with open(api_key_path, "r") as file:
+        api_key = file.read().strip()
     url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}&datatype=csv&outputsize=full"
     response = requests.get(url)
 
